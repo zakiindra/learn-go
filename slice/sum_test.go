@@ -1,6 +1,9 @@
 package slice
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 
@@ -14,4 +17,13 @@ func TestSum(t *testing.T) {
 			t.Errorf("expected %d but got actual %d", expected, actual)
 		}
 	})
+}
+
+func TestSumAll(t *testing.T) {
+	actual := SumAll([]int{1,2}, []int{0,9})
+	expected := []int{3,9}
+
+	if !reflect.DeepEqual(actual, expected) {
+		t.Errorf("expected %v but got actual %v", expected, actual)
+	}
 }
